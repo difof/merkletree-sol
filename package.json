@@ -1,15 +1,24 @@
 {
   "name": "merkletree-sol-medium",
-  "module": "index.ts",
-  "type": "module",
-  "private": true,
   "devDependencies": {
     "@nomicfoundation/hardhat-foundry": "^1.2.0",
     "@nomicfoundation/hardhat-toolbox": "^6.1.0",
+    "@typechain/ethers-v6": "^0.5.1",
+    "@typechain/hardhat": "^9.1.0",
     "@types/bun": "latest",
-    "hardhat": "^2.26.1"
+    "@types/chai": "4",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^24.1.0",
+    "chai": "4",
+    "hardhat": "^2.26.1",
+    "typechain": "^8.3.2"
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "dependencies": {
+    "@types/keccak": "^3.0.5",
+    "keccak": "^3.0.4",
+    "merkletreejs": "^0.5.2"
   }
 }

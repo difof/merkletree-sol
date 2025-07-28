@@ -1,17 +1,17 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.23;
 
 import {Test} from "forge-std/Test.sol";
 
 // ensure your remappings.txt contains "murky/=lib/murky/src/"
-import {CompleteMerkle} from "murky/CompleteMerkle.sol";
+import {Merkle} from "murky/Merkle.sol";
 
 contract TestFuzz_MerkleVerify is Test {
-    CompleteMerkle merkle;
+    Merkle merkle;
 
     function setUp() public {
-        merkle = new CompleteMerkle();
+        merkle = new Merkle();
     }
 
     function testFuzz_VerifyProofHappyPath(

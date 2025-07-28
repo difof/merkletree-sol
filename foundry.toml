@@ -1,10 +1,10 @@
 [profile.default]
 src = "src"
 out = "out"
-test = 'tests'
-script = 'scripts'
+test = 'test'
+script = 'script'
 libs = ["lib"]
-solc_version = "0.8.20"
+solc_version = "0.8.23"
 evm_version = "paris"
 
 
