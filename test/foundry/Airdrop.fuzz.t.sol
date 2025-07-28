@@ -21,9 +21,8 @@ contract TestFuzz_Airdrop is Test {
         vm.assume(owner != address(0x0));
         vm.assume(data.length > 1);
         vm.assume(leafIndex < data.length);
-        vm.assume(data[leafIndex].userWallet != address(0x0));
-        // exclude EVM precompile addresses (0x1 – 0x9)
-        vm.assume(uint160(data[leafIndex].userWallet) > 9);
+        vm.assume(_isAddressPayable(data[leafIndex].userWallet));
+        vm.assume(data[leafIndex].claimAmount < 10 ether);
 
         Airdrop artifact = _newAirdrop(owner);
 
@@ -36,6 +35,8 @@ contract TestFuzz_Airdrop is Test {
         );
         Membership memory memberToClaim = data[leafIndex];
 
+        uint256 balanceBefore = memberToClaim.userWallet.balance;
+
         vm.expectEmit(address(artifact));
         emit AirdroppedEther(
             memberToClaim.userWallet,
@@ -45,9 +46,15 @@ contract TestFuzz_Airdrop is Test {
             artifact.airdrop(memberToClaim, proof);
         }
 
-        assertTrue(
-            memberToClaim.userWallet.balance == memberToClaim.claimAmount
-        );
+        uint256 balanceAfter = memberToClaim.userWallet.balance;
+
+        assertTrue(balanceAfter - balanceBefore == memberToClaim.claimAmount);
+    }
+
+    function _isAddressPayable(address input) internal returns (bool) {
+        deal(address(this), 1);
+        (bool ok, ) = input.call{value: 1}("");
+        return ok;
     }
 
     function _newAirdrop(address owner) internal returns (Airdrop artifact) {
