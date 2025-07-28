@@ -38,6 +38,7 @@ node_modules
 
 # Hardhat files
 /cache
+/cache_hardhat
 /artifacts
 
 # TypeChain files
