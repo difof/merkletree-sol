@@ -1,6 +1,6 @@
 # MerkleTree usage in Solidity and TypeScript
 
-This is the example repository for my Medium article on [Merkle Trees](#).
+This is the example repository for my Medium article on [Merkle Trees](https://difof.medium.com/merkle-trees-in-solidity-and-typescript-ba29d817eaa1).
 
 ### Directory structure
 
