@@ -1,15 +1,28 @@
-# merkletree-sol-medium
+# MerkleTree usage in Solidity and TypeScript
 
-To install dependencies:
+This is the example repository for my Medium article on [Merkle Trees](#).
 
-```bash
+### Build and test docker image
+
+```sh
+docker build -t merkletree-sol .
+docker run --rm -it merkletree-sol
+```
+
+### Build and test from source
+
+Dependencies:
+
+- [bun](https://bun.com/docs/installation)
+- [foundry](https://getfoundry.sh/)
+
+Setup libraries and modules:
+
+```sh
+foundry install
 bun install
 ```
 
-To run:
+Run foundry tests: `forge test`
 
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.2.19. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
+Run integration tests: `bun run hardhat test`
