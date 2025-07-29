@@ -2,6 +2,21 @@
 
 This is the example repository for my Medium article on [Merkle Trees](#).
 
+### Directory structure
+
+```
+.
+├── lib                         -- Solidity dependencies
+│   ├── forge-std               -- Forge standard library
+│   ├── murky                   -- Efficient Merkle Tree implementation
+│   └── openzeppelin-contracts  -- OpenZeppelin!
+├── script                      -- Additional Foundry and Hardhat scripts and utilities
+├── src                         -- Solidity source, containing a single Airdrop.sol
+└── test                        -- Unit tests
+    ├── foundry                 -- Foundry specific tests (Solidity)
+    └── hardhat                 -- Hardhat integration tests (TypeScript)
+```
+
 ### Build and test docker image
 
 ```sh
